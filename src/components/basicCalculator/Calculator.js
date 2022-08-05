@@ -51,10 +51,12 @@ const Calculator = () => {
         />
       </div>
       <div className={dark ? "wrapper-dark" : "wrapper"}>
-        <div className={dark ? "display-dark" : "display"}>
-          {click ? result : ""}
+        <div className={dark ? "display-wrapper-dark" : "display-wrapper"}>
+          <div className={dark ? "display-dark" : "display"}>
+            {click ? result : ""}
+          </div>
+          <div className={dark ? "display-dark" : "display"}>{calc}</div>
         </div>
-        <div className={dark ? "display-dark" : "display"}>{calc}</div>
         <div className="buttons">
           <div
             className={dark ? "btn-dark btn_operator-dark" : "btn btn_operator"}

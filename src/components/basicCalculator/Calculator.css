@@ -63,8 +63,29 @@
   font-size: 1.1rem;
 }
 
+.display-wrapper {
+  height: 20%;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+  background: #f0f0f2;
+  box-shadow: 5px 5px 10px #ccccce,
+    -5px -5px 10px #ffffff;
+
+}
+
+.display-wrapper-dark {
+  height: 20%;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background: #212429;
+  box-shadow: 5px 5px 10px #171a1d,
+    -5px -5px 10px #2b2e35;
+}
+
 .display {
-  height: 10%;
+  height: 50%;
   width: 100%;
   overflow-x: hidden;
   display: flex;
@@ -78,7 +99,7 @@
 
 /*dark theme*/
 .display-dark {
-  height: 10%;
+  height: 50%;
   width: 100%;
   overflow-x: hidden;
   display: flex;
