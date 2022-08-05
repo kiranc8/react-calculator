@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { evaluate } from "mathjs";
-import './Calculator.css'
+import "./Calculator.css";
 const Calculator = () => {
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
@@ -39,16 +39,16 @@ const Calculator = () => {
         <div className="display">{click ? result : ""}</div>
         <div className="display">{calc}</div>
         <div className="buttons">
-          <div className="btn btn_blue" onClick={clearAll}>
+          <div className="btn btn_operator" onClick={clearAll}>
             AC
           </div>
-          <div className="btn btn_blue" onClick={clear}>
+          <div className="btn btn_operator" onClick={clear}>
             C
           </div>
-          <div className="btn btn_blue" onClick={() => updateCalc("%")}>
+          <div className="btn btn_operator" onClick={() => updateCalc("%")}>
             %
           </div>
-          <div className="btn btn_blue" onClick={() => updateCalc("/")}>
+          <div className="btn btn_operator" onClick={() => updateCalc("/")}>
             /
           </div>
         </div>
@@ -63,7 +63,7 @@ const Calculator = () => {
             9
           </div>
           <div
-            className="btn btn_blue"
+            className="btn btn_operator"
             value="x"
             onClick={() => updateCalc("*")}
           >
@@ -81,7 +81,7 @@ const Calculator = () => {
             6
           </div>
           <div
-            className="btn btn_blue"
+            className="btn btn_operator"
             value="-"
             onClick={() => updateCalc("-")}
           >
@@ -99,7 +99,7 @@ const Calculator = () => {
             3
           </div>
           <div
-            className="btn btn_blue"
+            className="btn btn_operator"
             value="+"
             onClick={() => updateCalc("+")}
           >
@@ -117,7 +117,7 @@ const Calculator = () => {
             .
           </div>
           <div
-            className="btn btn_blue"
+            className="btn btn_operator"
             value="="
             onClick={() => setClick(true)}
           >
