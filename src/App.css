@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Public+Sans:wght@600&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Public Sans', sans-serif;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: none;
+}
+
+body {
+  border-radius: 57px;
+  border-radius: 57px;
+  background: linear-gradient(315deg, #1a1818, #1f1d1d);
+  box-shadow: 15px 15px 9px #1b1a1a,
+    -15px 15px -19px #171616;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  font-size: 2rem;
+}
+
