@@ -7,6 +7,16 @@
   justify-content: center;
 }
 
+/*dark theme*/
+.container-dark {
+  height: 100vh;
+  display: flex;
+  background: #212429;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -21,11 +31,36 @@
   margin-bottom: 20px;
 }
 
-.heading {
-  color: #000;
-  font-size: 2rem;
-  font-weight: 800;
+/*dark theme*/
+.wrapper-dark {
+  display: flex;
+  flex-direction: column;
+  border-radius: 50px;
+  background: #212429;
+  box-shadow: 5px 5px 10px #171a1d,
+    -5px -5px 10px #2b2e35;
+  height: 560px;
+  width: 360px;
+  padding: 15px;
+  border-radius: 20px;
   margin-bottom: 20px;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  font-size: 2rem;
+}
+
+.label-dark {
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.label {
+  color: #000;
+  font-size: 1.1rem;
 }
 
 .display {
@@ -38,6 +73,20 @@
   margin-right: 1.5rem;
   font-size: 3rem;
   color: #000;
+  background: transparent;
+}
+
+/*dark theme*/
+.display-dark {
+  height: 10%;
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-right: 1.5rem;
+  font-size: 3rem;
+  color: #fff;
   background: transparent;
 }
 
@@ -62,7 +111,23 @@
   height: 4rem;
   align-items: center;
   justify-content: center;
+}
 
+/*dark theme*/
+.btn-dark {
+  cursor: pointer;
+  display: flex;
+  border-radius: 50px;
+  background: #212429;
+  box-shadow: 5px 5px 10px #171a1d,
+    -5px -5px 10px #2b2e35;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:active {
@@ -70,16 +135,29 @@
     -20px -20px 60px #ffffff;
 }
 
+/*dark theme*/
+.btn-dark:active {
+  box-shadow: 5px 5px 10px #1f2226,
+    -5px -5px 10px #27282d;
+}
+
 .btn_operator {
   color: black;
-  background-color: #fe9d12;
-
-
+  border-radius: 50px;
+  background: #fe9d12;
+  box-shadow: 5px 5px 3px #e58d10,
+    -5px -5px -3px #ffad14;
 }
 
-.btn_operator:active {
-  opacity: 0.5;
+/*dark theme*/
+.btn_operator-dark {
+  color: white;
+  border-radius: 50px;
+  background: #fe9d12;
+  box-shadow: 5px 5px 3px #e58d10,
+    -5px -5px -3px #ffad14;
 }
+
 
 @media screen and (max-width:400px) {
   .wrapper {
