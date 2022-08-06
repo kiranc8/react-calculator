@@ -4,8 +4,6 @@ import "./Calculator.css";
 import Switch from "@mui/material/Switch";
 const Calculator = () => {
   const [calc, setCalc] = useState("");
-  const [result, setResult] = useState("");
-  const [click, setClick] = useState(false);
   const [dark, setDark] = useState(false);
 
   const operators = ["+", "-", "*", "/", "%", ".", "^"];
@@ -18,21 +16,14 @@ const Calculator = () => {
       return;
     }
     setCalc(calc + value);
-    if (!operators.includes(value)) {
-      setResult(evaluate(calc + value));
-    }
   };
 
   const clearAll = () => {
     setCalc("");
-    setResult("");
-    setClick(false);
   };
 
   const clear = () => {
     setCalc(calc.slice(0, -1));
-    setResult(evaluate(calc));
-    setClick(false);
   };
 
   const handleChange = () => {
@@ -40,8 +31,10 @@ const Calculator = () => {
   };
 
   const equalTo =()=>{
-    setResult(evaluate(calc))
-    setClick(true)
+    if(operators.includes(calc.slice(-1))){
+      return
+    }
+    setCalc(evaluate(calc).toString())
   }
   return (
     <div className={dark ? "container-dark" : "container"}>
@@ -57,9 +50,6 @@ const Calculator = () => {
       </div>
       <div className={dark ? "wrapper-dark" : "wrapper"}>
         <div className={dark ? "display-wrapper-dark" : "display-wrapper"}>
-          <div className={dark ? "display-dark" : "display"}>
-            {click ? result : ""}
-          </div>
           <div className={dark ? "display-dark" : "display"}>{calc}</div>
         </div>
         <div className="buttons">

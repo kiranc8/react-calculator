@@ -85,7 +85,7 @@
 }
 
 .display {
-  height: 50%;
+  height: 100%;
   width: 100%;
   overflow-x: hidden;
   display: flex;
@@ -99,7 +99,7 @@
 
 /*dark theme*/
 .display-dark {
-  height: 50%;
+  height: 100%;
   width: 100%;
   overflow-x: hidden;
   display: flex;
