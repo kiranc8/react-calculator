@@ -31,6 +31,7 @@ const Calculator = () => {
 
   const clear = () => {
     setCalc(calc.slice(0, -1));
+    setResult(evaluate(calc));
     setClick(false);
   };
 
@@ -38,6 +39,10 @@ const Calculator = () => {
     setDark(!dark);
   };
 
+  const equalTo =()=>{
+    setResult(evaluate(calc))
+    setClick(true)
+  }
   return (
     <div className={dark ? "container-dark" : "container"}>
       <div className="toggle-button">
@@ -186,7 +191,7 @@ const Calculator = () => {
           <div
             className={dark ? "btn-dark btn_operator-dark" : "btn btn_operator"}
             value="="
-            onClick={() => setClick(true)}
+            onClick={equalTo}
           >
             =
           </div>
