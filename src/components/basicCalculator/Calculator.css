@@ -187,4 +187,14 @@
   .wrapper-dark {
     width: 90%;
   }
+  .btn{
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  .btn-dark{
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+  }
 }
