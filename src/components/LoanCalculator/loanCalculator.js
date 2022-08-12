@@ -9,6 +9,7 @@ const LoanCalculator = () => {
   const [monthlyPayment, setMonthlyPayment] = useState("");
   const [totalInterest, setTotalInterest] = useState("");
   const [totalPayment, setTotalPayment] = useState("");
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -29,20 +30,35 @@ const LoanCalculator = () => {
   };
 
   const handleClick = () => {
-    const principal = amount;
-    const calculateInterest = interest / 100 / 12;
-    const calculatedPayment = year * 12;
+    if (
+      amount < 1 ||
+      year < 1 ||
+      interest < 1 ||
+      amount === "" ||
+      year === "" ||
+      interest === ""
+    ) {
+      setError("please provide valid value")
+      setMonthlyPayment("")
+      setTotalInterest("");
+      setTotalPayment("");
+    } else {
+      setError("")
+      const principal = amount;
+      const calculateInterest = interest / 100 / 12;
+      const calculatedPayment = year * 12;
 
-    //calculate monthly payment
-    const x = Math.pow(1 + calculateInterest, calculatedPayment);
-    const monthly = (principal * x * calculateInterest) / (x - 1);
-    setMonthlyPayment(monthly.toFixed(2));
+      //calculate monthly payment
+      const x = Math.pow(1 + calculateInterest, calculatedPayment);
+      const monthly = (principal * x * calculateInterest) / (x - 1);
+      setMonthlyPayment(monthly.toFixed(2));
 
-    //Compute interest
-    setTotalInterest((monthly * calculatedPayment - principal).toFixed(2));
+      //Compute interest
+      setTotalInterest((monthly * calculatedPayment - principal).toFixed(2));
 
-    //compute total payment
-    setTotalPayment((monthly * calculatedPayment).toFixed(2));
+      //compute total payment
+      setTotalPayment((monthly * calculatedPayment).toFixed(2));
+    }
   };
 
   return (
@@ -104,6 +120,9 @@ const LoanCalculator = () => {
         <button className="loan-button" onClick={handleClick}>
           CALCULATE
         </button>
+        <div className="loan-result">
+          {error ?error : ""}
+        </div>
         <div className="loan-result">
           {monthlyPayment ? "Monthly payment : " + monthlyPayment : ""}
         </div>
