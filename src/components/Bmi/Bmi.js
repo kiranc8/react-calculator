@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../ThemeContext";
 import "./Bmi.css";
+import Fade from "react-reveal/Fade";
+import Slide from "react-reveal/Slide";
 const Bmi = () => {
   const { dark } = useContext(ThemeContext);
   const [weight, setWeight] = useState("");
@@ -51,33 +53,37 @@ const Bmi = () => {
   };
 
   return (
-    <div className={dark ? "bmi-container-dark" : "bmi-container"}>
-      <div className={dark ? "bmi-wrapper-dark" : "bmi-wrapper"}>
-        <span className="bmi-heading">BMI Calculator</span>
-        <input
-          className={dark ? "bmi-input-dark" : "bmi-input"}
-          name="height"
-          type="number"
-          placeholder="Height (cm)"
-          value={height}
-          onChange={handleChange}
-        ></input>
+    <Slide right>
+      <div className={dark ? "bmi-container-dark" : "bmi-container"}>
+        <div className={dark ? "bmi-wrapper-dark" : "bmi-wrapper"}>
+          <span className="bmi-heading">BMI Calculator</span>
+          <input
+            className={dark ? "bmi-input-dark" : "bmi-input"}
+            name="height"
+            type="number"
+            placeholder="Height (cm)"
+            value={height}
+            onChange={handleChange}
+          ></input>
 
-        <input
-          className={dark ? "bmi-input-dark" : "bmi-input"}
-          name="weight"
-          type="number"
-          placeholder="Weight (kg)"
-          value={weight}
-          onChange={handleChange}
-        ></input>
-        <button className="bmi-button" onClick={calculate}>
-          CALCULATE
-        </button>
-        <div className="result">{result ? result : ""}</div>
-        <div className="detail">{detail ? detail : ""}</div>
+          <input
+            className={dark ? "bmi-input-dark" : "bmi-input"}
+            name="weight"
+            type="number"
+            placeholder="Weight (kg)"
+            value={weight}
+            onChange={handleChange}
+          ></input>
+          <button className="bmi-button" onClick={calculate}>
+            CALCULATE
+          </button>
+          <Fade top cascade when={result || detail}>
+            <div className="result">{result ? result : ""}</div>
+            <div className="detail">{detail ? detail : ""}</div>
+          </Fade>
+        </div>
       </div>
-    </div>
+    </Slide>
   );
 };
 

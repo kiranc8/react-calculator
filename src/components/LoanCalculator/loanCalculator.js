@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../ThemeContext";
 import "./loanCalculator.css";
+import Fade from "react-reveal/Fade";
+import Slide from "react-reveal/Slide";
 const LoanCalculator = () => {
   const { dark } = useContext(ThemeContext);
   const [amount, setAmount] = useState("");
@@ -38,12 +40,12 @@ const LoanCalculator = () => {
       year === "" ||
       interest === ""
     ) {
-      setError("please provide valid value")
-      setMonthlyPayment("")
+      setError("please provide valid value");
+      setMonthlyPayment("");
       setTotalInterest("");
       setTotalPayment("");
     } else {
-      setError("")
+      setError("");
       const principal = amount;
       const calculateInterest = interest / 100 / 12;
       const calculatedPayment = year * 12;
@@ -62,78 +64,80 @@ const LoanCalculator = () => {
   };
 
   return (
-    <div className={dark ? "loan-container-dark" : "loan-container"}>
-      <div className={dark ? "loan-wrapper-dark" : "loan-wrapper"}>
-        <span className="bmi-heading">Loan Calculator</span>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <span className="loan-label">Loan Amount</span>
-              </td>
-              <td>
-                <input
-                  className={dark ? "input-dark" : "input"}
-                  name="amount"
-                  type="number"
-                  min="0"
-                  placeholder="₹"
-                  value={amount}
-                  onChange={handleChange}
-                ></input>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span className="loan-label">Loan Term</span>
-              </td>
-              <td>
-                <input
-                  className={dark ? "input-dark" : "input"}
-                  name="year"
-                  type="number"
-                  placeholder="years"
-                  min="0"
-                  value={year}
-                  onChange={handleChange}
-                ></input>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span className="loan-label">Interest</span>
-              </td>
-              <td>
-                <input
-                  className={dark ? "input-dark" : "input"}
-                  name="interest"
-                  type="number"
-                  min="0"
-                  placeholder="%"
-                  value={interest}
-                  onChange={handleChange}
-                ></input>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <button className="loan-button" onClick={handleClick}>
-          CALCULATE
-        </button>
-        <div className="loan-result">
-          {error ?error : ""}
-        </div>
-        <div className="loan-result">
-          {monthlyPayment ? "Monthly payment : " + monthlyPayment : ""}
-        </div>
-        <div className="loan-result">
-          {totalInterest ? "Total interest : " + totalInterest : ""}
-        </div>
-        <div className="loan-result">
-          {totalPayment ? "Total payment : " + totalPayment : ""}
+    <Slide right>
+      <div className={dark ? "loan-container-dark" : "loan-container"}>
+        <div className={dark ? "loan-wrapper-dark" : "loan-wrapper"}>
+          <span className="bmi-heading">Loan Calculator</span>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <span className="loan-label">Loan Amount</span>
+                </td>
+                <td>
+                  <input
+                    className={dark ? "input-dark" : "input"}
+                    name="amount"
+                    type="number"
+                    min="0"
+                    placeholder="₹"
+                    value={amount}
+                    onChange={handleChange}
+                  ></input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span className="loan-label">Loan Term</span>
+                </td>
+                <td>
+                  <input
+                    className={dark ? "input-dark" : "input"}
+                    name="year"
+                    type="number"
+                    placeholder="years"
+                    min="0"
+                    value={year}
+                    onChange={handleChange}
+                  ></input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span className="loan-label">Interest</span>
+                </td>
+                <td>
+                  <input
+                    className={dark ? "input-dark" : "input"}
+                    name="interest"
+                    type="number"
+                    min="0"
+                    placeholder="%"
+                    value={interest}
+                    onChange={handleChange}
+                  ></input>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button className="loan-button" onClick={handleClick}>
+            CALCULATE
+          </button>
+          <Fade top cascade when={monthlyPayment || error}>
+            <div className="loan-result">{error ? error : ""}</div>
+            <div className="loan-result">
+              {monthlyPayment ? "Monthly payment : " + monthlyPayment : ""}
+            </div>
+            <div className="loan-result">
+              {totalInterest ? "Total interest : " + totalInterest : ""}
+            </div>
+            <div className="loan-result">
+              {totalPayment ? "Total payment : " + totalPayment : ""}
+            </div>
+          </Fade>
         </div>
       </div>
-    </div>
+    </Slide>
   );
 };
 

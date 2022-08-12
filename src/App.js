@@ -9,7 +9,7 @@ import { useState } from "react";
 function App() {
   const [dark, setDark] = useState(true);
   return (
-    <div className="App">
+    <div className={dark?"App-dark":"App"}>
       <BrowserRouter>
         <ThemeContext.Provider value={{ dark, setDark }}>
           <Navbar />
