@@ -1,5 +1,5 @@
 .container {
-  height: 100vh;
+  height: 95vh;
   display: flex;
   background: #f0f0f2;
   flex-direction: column;
@@ -9,7 +9,7 @@
 
 /*dark theme*/
 .container-dark {
-  height: 100vh;
+  height: 95vh;
   display: flex;
   background: #212429;
   flex-direction: column;
@@ -158,8 +158,7 @@
 
 /*dark theme*/
 .btn-dark:active {
-  box-shadow: 5px 5px 10px #1f2226,
-    -5px -5px 10px #27282d;
+  box-shadow: none
 }
 
 .btn_operator {
@@ -175,8 +174,8 @@
   color: white;
   border-radius: 50px;
   background: #fe9d12;
-  box-shadow: 5px 5px 3px #e58d10,
-    -5px -5px -3px #ffad14;
+  /* box-shadow: 5px 5px 3px #e58d10,
+    -5px -5px -3px #ffad14; */
 }
 
 
@@ -184,15 +183,18 @@
   .wrapper {
     width: 90%;
   }
+
   .wrapper-dark {
     width: 90%;
   }
-  .btn{
+
+  .btn {
     width: 3rem;
     height: 3rem;
     font-size: 1.5rem;
   }
-  .btn-dark{
+
+  .btn-dark {
     width: 3rem;
     height: 3rem;
     font-size: 1.5rem;

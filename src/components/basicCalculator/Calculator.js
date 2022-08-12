@@ -1,10 +1,10 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import { evaluate } from "mathjs";
+import { ThemeContext } from "../../ThemeContext";
 import "./Calculator.css";
-import Switch from "@mui/material/Switch";
 const Calculator = () => {
   const [calc, setCalc] = useState("");
-  const [dark, setDark] = useState(false);
+  const { dark } = useContext(ThemeContext);
 
   const operators = ["+", "-", "*", "/", "%", ".", "^"];
 
@@ -26,28 +26,14 @@ const Calculator = () => {
     setCalc(calc.slice(0, -1));
   };
 
-  const handleChange = () => {
-    setDark(!dark);
-  };
-
-  const equalTo =()=>{
-    if(operators.includes(calc.slice(-1))){
-      return
+  const equalTo = () => {
+    if (operators.includes(calc.slice(-1))) {
+      return;
     }
-    setCalc(evaluate(calc).toString())
-  }
+    setCalc(evaluate(calc).toString());
+  };
   return (
     <div className={dark ? "container-dark" : "container"}>
-      <div className="toggle-button">
-        <span className={dark ? "label-dark" : "label"}>
-          {dark ? "Light" : "Dark"}
-        </span>
-        <Switch
-          checked={dark}
-          onChange={handleChange}
-          inputProps={{ "aria-label": "controlled" }}
-        />
-      </div>
       <div className={dark ? "wrapper-dark" : "wrapper"}>
         <div className={dark ? "display-wrapper-dark" : "display-wrapper"}>
           <div className={dark ? "display-dark" : "display"}>{calc}</div>
