@@ -111,16 +111,6 @@
     margin-bottom: 5px;
 }
 
-@media screen and (max-width:500px) {
-    .input {
-        width: 12rem;
-    }
-
-    .input-dark {
-        width: 12rem;
-    }
-}
-
 @media screen and (max-width:900px) {
     .loan-wrapper {
         width: 90%;
@@ -128,5 +118,25 @@
 
     .loan-wrapper-dark {
         width: 90%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .input {
+        width: 14rem;
+    }
+
+    .input-dark {
+        width: 14rem;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .input {
+        width: 9rem;
+    }
+
+    .input-dark {
+        width: 9rem;
     }
 }
