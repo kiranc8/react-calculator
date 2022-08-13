@@ -36,7 +36,7 @@ const Calculator = () => {
     <div className={dark ? "container-dark" : "container"}>
       <div className={dark ? "wrapper-dark" : "wrapper"}>
         <div className={dark ? "display-wrapper-dark" : "display-wrapper"}>
-          <div className={dark ? "display-dark" : "display"}>{calc}</div>
+          <div className={dark ? "display-dark" : "display"}>{calc.length>=15?parseFloat(calc).toExponential(8):calc}</div>
         </div>
         <div className="buttons">
           <div
