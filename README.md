@@ -14,7 +14,7 @@ https://react-basic-calculator-application.netlify.app/
 
 ## TECH
 
-Technologies used: HTML, CSS , JavaScript ,Reactjs,MUI
+Technologies used: HTML, CSS , JavaScript ,Reactjs
 
 ## PREVIEW
 
