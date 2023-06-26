@@ -1,4 +1,4 @@
-# React Movie App
+# React Calculator
 
 A basic calculator made with React
 
